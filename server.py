@@ -17,11 +17,11 @@ parser.add_argument(
 args = parser.parse_args()
 
 if __name__ == '__main__':
-    flask_options = dict(
-        host='0.0.0.0',
-        debug=True,
-        port=args.port,
-        threaded=True,
-    )
-
-    app.run(**flask_options)
+    
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', 
+    		port=port,
+    		debug=True,
+    		threaded=True,
+    )        
+   
